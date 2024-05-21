@@ -7,11 +7,9 @@ export default function Home() {
   return (
     <>
       <Title
-        data={{
-          title: "Tienda",
-          subtitle: "todo los productos",
-          className: "mt-3",
-        }}
+        title={"tienda"}
+        subtitle={"productos para regalar"}
+        className="mt-3"
       />
 
       <ProductGrid products={product} />

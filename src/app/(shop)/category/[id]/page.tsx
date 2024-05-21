@@ -1,21 +1,36 @@
+import { ProductGrid, Title } from "@/components";
+import { Category } from "@/interfaces";
+import { initialData } from "@/seed/seed";
 import { notFound } from "next/navigation";
 
-interface PageNotFounderProps {
+const seedProducts = initialData.products;
+
+interface Props {
   params: {
-    id: string;
+    id: Category;
   };
 }
 
-export default function PageNotFounder({ params }: PageNotFounderProps) {
+export default function PageNotFounder({ params }: Props) {
   const { id } = params;
-
-  if (id === "men") {
-    notFound();
-  }
+  const products = seedProducts.filter((product) => product.gender === id);
+  const labels: Record<Category, string> = {
+    men: "Hombres",
+    women: "Mujeres",
+    kid: "Niños",
+    unisex: "para todos",
+  };
 
   return (
-    <div>
-      <h1>Category page {id}</h1>
-    </div>
+    <>
+      <Title
+        title={`Articulos de ${labels[id]}`}
+        subtitle={""}
+        className="
+      mt-3"
+      />
+
+      <ProductGrid products={products} />
+    </>
   );
 }

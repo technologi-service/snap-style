@@ -38,7 +38,7 @@ export const TopMenu = () => {
 
         <MenubarMenu>
           <MenubarTrigger>
-            <Link href="/category/children">children</Link>
+            <Link href="/category/kid">children</Link>
           </MenubarTrigger>
         </MenubarMenu>
       </div>
